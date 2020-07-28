@@ -23,6 +23,14 @@ There should be two environment variables set. The first is `TARGET`, which refe
 - JS obfuscation
 - Make into a framework to allow for easier expansion and customization
 
+## Performance
+
+Here's the data I got when running the testing scripts. I ran these on my own computer while the webserver was running on a VM somewhere, so this is closer to what real-world times would look like.
+
+![Chart](https://i.imgur.com/UMqILQp.png)
+
+Overall, this proxy adds about 50% more time to the requests made. This should only be used for smaller webpages. The page I tested this on was less than 100 lines total of CSS, HTML, and JS. In any production-like environment, a load balancer should1 be configured to only run higher-risk pages, like login and contact forms, through this proxy. This isn't meant to be run on a landing page with huge CSS, JS, and images.
+
 ## A note
 
 **This project is only a proof of concept.** It is far from optimized in many regards. The database module, `tinydb` is far from production ready. It literally just stores everything in a JSON file. That means that query times eventually begin to suffer. There are also issues where 2 instances of the script try to access the db file at the same time. In relation to that, the fact that a new instance of the obfuscation script must be run on every new request means that in high-demand situations, memory usage may become an issue.
