@@ -1,0 +1,4 @@
+testing/__pycache__
+node_modules
+cert/
+obfuscation/session_mappings.json
