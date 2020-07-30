@@ -1,4 +1,4 @@
-# node-obfuscation
+# obfuscator
 
 A proxy to automatically obfuscate the DOM elements and structure to guard against automated attacks and web scraping. Created as my 2020 summer internship project with UNO and Dr. Rui Zhao.
 
